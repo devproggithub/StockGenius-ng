@@ -1,0 +1,42 @@
+#content-wrapper {
+    background-color : rgb(236 239 243 / 0%) !important;
+}
+.fade-in {
+    animation: fadeIn 5s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes warning-blink {
+    0%   {background-color: #c2ffc2;}
+    25%  {background-color: #61bcb6;}
+    50%  {background-color: #c2ffc2;}
+    100% {background-color: #61bcb6;}
+  }
+  @keyframes danger-blink {
+    0%   {background-color: #ffc2c2;}
+    25%  {background-color: #bc617e;}
+    50%  {background-color: #ffc2c2;}
+    100% {background-color: #bc617e;}
+  }
+  
+  .warning-blink-animation {
+    animation: warning-blink 1s ease-in-out 20 !important;
+    animation-fill-mode: both !important;
+  }
+  .danger-blink-animation {
+    animation: danger-blink 1s ease-in-out 20 !important;
+    animation-fill-mode: both !important;
+  }
+  
+  .warning-final-state {
+    transition: background-color 0.5s ease;
+  }
+  .badge_grossiste {
+    background-color: #5a011d;
+  }
+  .badge_particulier {
+    background-color: #bc617e;
+  }

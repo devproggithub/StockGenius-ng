@@ -1,0 +1,75 @@
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">	
+        <div class="col-12">
+            <div class="row justify-content-center g-0">
+                <div class="col-lg-5 col-md-5 col-12" style="margin-top: 15%;">
+                    <div class="bg-white rounded10 shadow-lg" style="background-color: #ffffffa8 !important;">
+                        <div class="content-top-agile p-20 pb-0">
+                            <img src="../../assets/img/officiel_logo.png" alt="" style="max-width: 60%;">
+                            <h3 class="mb-0">Authentification</h3>							
+                        </div>
+                        <div class="p-40">
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" method="post">
+                                <div *ngIf="errorMessage" class="error-message">
+                                    {{ errorMessage }}
+                                  </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text bg-transparent"><i class="fa-regular fa-user"></i></span>
+                                        <input type="text" id="username" formControlName="username"  
+                                            class="form-control ps-15 bg-transparent" placeholder="Username"
+                                            [ngClass]="{ 'is-invalid': loginForm.controls['username'].touched && loginForm.controls['username'].invalid }">
+                                        <div *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid" class="invalid-feedback">
+                                            Le nom d'utilisateur est requis.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text  bg-transparent"><i class="fa-solid fa-key"></i></span>
+                                        <input type="password" id="password" formControlName="password" 
+                                            class="form-control ps-15 bg-transparent" placeholder="Password"
+                                            [ngClass]="{ 'is-invalid': loginForm.controls['password'].touched && loginForm.controls['password'].invalid }">
+                                        <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid" class="invalid-feedback">
+                                            Le mot de passe est requis.
+                                        </div>
+                                    </div>
+                                </div>
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <div class="checkbox">
+                                        <input type="checkbox" id="basic_checkbox_1" >
+                                        <label for="basic_checkbox_1">Se souvenir de moi</label>
+                                      </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-6">
+                                     <!-- <div class="fog-pwd text-end">
+                                        <a href="javascript:void(0)" class="hover-warning"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
+                                      </div> -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-12 text-center">
+                                      <button type="submit" [disabled]="loginForm.invalid || loading" class="btn btn-danger mt-10" 
+                                        href="dashboard"(click)="login()">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> 
+                                        SE CONNECTER</button>
+                                    </div>
+                                    <!-- /.col -->
+                                  </div>
+                            </form>		
+                        </div>						
+                    </div>
+                    <!-- <div class="text-center">
+                      <p class="mt-20 text-white">- Sign With -</p>
+                      <p class="gap-items-2 mb-20">
+                          <a class="btn btn-social-icon btn-round btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                          <a class="btn btn-social-icon btn-round btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                          <a class="btn btn-social-icon btn-round btn-instagram" href="#"><i class="fa fa-instagram"></i></a>
+                        </p>	
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,228 @@
+<div class="content-wrapper" style="margin-top: 85px !important;">
+    <div class="container-full">
+    <div class="content-header">
+        <div class="d-flex align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">Prévisions de Stock</h3>
+                <p>Anticipez les besoins futures et optimisez votre inventaire</p>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="row">
+            <h4><b>Indicateurs clés</b></h4>
+            <div class="col-xl-3 col-12">
+                <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Produits en alerte</h4>
+                    <div class="box-controls pull-right">
+                        <div class="progress progress-xs w-100 mb-0 mt-10">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;background-color: #fbc66c !important;" 
+                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h3 class="mt-0 pr-3" style="margin-right: 10px;">12</h3>
+                    </div> 
+                </div>
+                <div class="box-body">
+                    <h4><span style="color:#e28227;">12 Produits</span> : </h4><p>(Produit ABC, Produit AYA, Produit XYZ ... )</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12">
+                <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Risque de rupture (30j)</h4>
+                    <div class="box-controls pull-right">
+                        <i class=" ml-3 fa fa-warning" aria-hidden="true" style="font-size: x-large;color:#fc5b5b"></i>
+                        <h3 class="mt-0 pr-3 text-danger" style="color:#fc5b5b;margin-right: 10px;">5</h3>
+                    </div> 
+                </div>
+                <div class="box-body">
+                    <h4><span style="color:#fc5b5b">5 Produits</span> : </h4><p>(Produit ABC, Produit AYA, Produit XYZ ... )</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12">
+                <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Produits potentielles <span style="font-size: smaller;">(Plus demandés)</span></h4>
+                    <div class="box-controls pull-right">
+                        <i class=" ml-3 fa fa-fw fa-line-chart" aria-hidden="true" style="font-size: x-large;color:#028394"></i>
+                        <h3 class="mt-0 pr-3" style="color:#028394;margin-right: 10px;">4</h3>
+                    </div> 
+                </div>
+                <div class="box-body">
+                    <h4><span style="color:#028394">4 Produits</span> : </h4><p>(Produit ABC, Produit AYA, Produit XYZ ... )</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-12">
+                <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Prochain Evenement</h4>
+                    <div class="box-controls pull-right">
+                        <i class=" ml-3 fa fa-dollar" aria-hidden="true" style="font-size: x-large;color:#028394"></i>
+                    </div> 
+                </div>
+                <div class="box-body">
+                    <h4><b style="color:#028394">Festival de Shopping Spécial Été</b></h4>
+                    <p><span style="color:#028394">Où :</span>Centres commerciaux de : Casablanca, Rabat et Marrakech<br>
+                        <span style="color:#028394">Quand :</span> Juin-Juillet 2025<br>
+                        <span style="color:#028394">Produits populaires</span> : Articles de plage, produits solaires</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xl-6">
+
+                <!-- Basic line chart -->
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h4 class="box-title"><b style="color:#028394">Evolution du stock</b></h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="rpw col-xl-12">
+                            <div class="row col-xl-12">
+                                <div class="form-group col-xl-4">
+                                    <h5>Catégorie <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <select name="select" id="select" required class="form-select">
+                                            <option value="">Séléctionnez la catégorie</option>
+                                            <option value="1">Électricité & Éclairage</option>
+                                            <option value="2">Outillage & Équipement</option>
+                                            <option value="3">Fournitures Industrielles</option>
+                                            <option value="4">Équipements de Protection</option>
+                                            <option value="5">Produits d'Entretien</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-4">
+                                    <h5>Période <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <select name="select" id="select" required class="form-select">
+                                            <option value="">Séléctionnez la période</option>
+                                            <option value="1">15 jours</option>
+                                            <option value="2">30 jours</option>
+                                            <option value="3">1 mois</option>
+                                            <option value="4">6 mois</option>
+                                            <option value="5">1 année</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
+                    </div>
+                </div>
+                <!-- /basic line chart -->
+
+            </div>
+            <div class="col-xl-6">
+                <div class="box">
+                    <div class="box-header">
+                        <h4 class="box-title"><b style="color:#3375ee">Commandes</b>
+                        </h4>
+                        <!-- <div class="box-controls pull-right">
+                            <ul class="nav nav-pills nav-pills-sm" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link py-2 px-4 b-0" data-bs-toggle="tab" href="#">
+                                        <span class="nav-text base-font">Mois</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link py-2 px-4 b-0" data-bs-toggle="tab" href="#">
+                                        <span class="nav-text base-font">Semaine</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link py-2 px-4 b-0 active" data-bs-toggle="tab" href="#">
+                                        <span class="nav-text base-font">Jour</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="box-body">
+                        <div class="rpw col-xl-12">
+                            <div class="row col-xl-12">
+                                <div class="form-group col-xl-4">
+                                    <h5>Catégorie <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <select name="select" id="select" required class="form-select">
+                                            <option value="">Séléctionnez la catégorie</option>
+                                            <option value="1">Électricité & Éclairage</option>
+                                            <option value="2">Outillage & Équipement</option>
+                                            <option value="3">Fournitures Industrielles</option>
+                                            <option value="4">Équipements de Protection</option>
+                                            <option value="5">Produits d'Entretien</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-xl-4">
+                                    <h5>Période <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <select name="select" id="select" required class="form-select">
+                                            <option value="">Séléctionnez la période</option>
+                                            <option value="1">15 jours</option>
+                                            <option value="2">30 jours</option>
+                                            <option value="3">1 mois</option>
+                                            <option value="4">6 mois</option>
+                                            <option value="5">1 année</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <div class="col-lg-4 col-12 d-flex flex-column">
+                                <div class="bg-warning-light p-30">
+                                    <div class="d-flex align-items-center mb-30">
+                                        <div class="me-15 bg-white h-40 w-40 l-h-50 rounded text-center">
+                                              <span class="icon-Library fs-18 text-success"><span class="path1"></span><span class="path2"></span></span>
+                                        </div>
+                                        <div class="d-flex flex-column fw-500">
+                                            <a href="#" class="text-dark hover-primary fs-16">$800</a>
+                                            <span class="text-muted">Duis faucibus lorem</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-30">
+                                        <div class="me-15 bg-white h-40 w-40 l-h-50 rounded text-center">
+                                            <span class="icon-Write fs-18 text-warning"><span class="path1"></span><span class="path2"></span></span>
+                                        </div>
+                                        <div class="d-flex flex-column fw-500">
+                                            <a href="#" class="text-dark hover-danger fs-16">$400</a>
+                                            <span class="text-muted">Sed quis augue </span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-30">
+                                        <div class="me-15 bg-white h-40 w-40 l-h-50 rounded text-center">
+                                            <span class="icon-Group-chat fs-18 text-primary"><span class="path1"></span><span class="path2"></span></span>
+                                        </div>
+                                        <div class="d-flex flex-column fw-500">
+                                            <a href="#" class="text-dark hover-success fs-16">$900</a>
+                                            <span class="text-muted">Phasellus vitae</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-15 bg-white h-40 w-40 l-h-50 rounded text-center">
+                                            <span class="icon-Attachment1 fs-18 text-info"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                                        </div>
+                                        <div class="d-flex flex-column fw-500">
+                                            <a href="#" class="text-dark hover-info fs-16">$80</a>
+                                            <span class="text-muted">Aliquam in magna</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-12 col-12">
+                                <div id="charts_widget_2_chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+</div>
