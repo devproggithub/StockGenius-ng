@@ -1,0 +1,86 @@
+<!-- src/app/components/rfid-readings/rfid-readings.component.html -->
+<div class="container">
+  <h2>Lectures RFID</h2>
+  
+  <div class="controls mb-4">
+    <button class="btn btn-primary me-2" (click)="loadReadings()">
+      <i class="fas fa-sync-alt"></i> Rafraîchir
+    </button>
+    
+    <button class="btn" [ngClass]="autoRefresh ? 'btn-danger' : 'btn-success'" (click)="toggleAutoRefresh()">
+      <i class="fas" [ngClass]="autoRefresh ? 'fa-stop' : 'fa-play'"></i>
+      {{ autoRefresh ? 'Arrêter le rafraîchissement auto' : 'Démarrer le rafraîchissement auto' }}
+    </button>
+    
+    <div class="mt-3">
+      <button class="btn btn-success me-2" (click)="startRfidReader()">
+        <i class="fas fa-play"></i> Démarrer le lecteur RFID
+      </button>
+      
+      <button class="btn btn-danger" (click)="stopRfidReader()">
+        <i class="fas fa-stop"></i> Arrêter le lecteur RFID
+      </button>
+    </div>
+  </div>
+  
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+  
+  <div *ngIf="!loading && readings.length === 0" class="alert alert-info">
+    Aucune lecture RFID disponible.
+  </div>
+  
+  <div *ngIf="readings.length > 0" class="card-container">
+    <div *ngFor="let reading of readings" class="card mb-3">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>ID: {{ reading.id }}</span>
+        <small>{{ reading.saved_at | date:'dd/MM/yyyy HH:mm:ss' }}</small>
+      </div>
+      
+      <div class="card-body">
+        <!-- Affichage des données JSON parsées -->
+        <div *ngIf="reading.parsed_data" class="mb-3">
+          <h5>Données parsées:</h5>
+          
+          <!-- UID de la carte -->
+          <div *ngIf="reading.parsed_data.uid" class="mb-2">
+            <strong>UID:</strong> {{ reading.parsed_data.uid }}
+          </div>
+          
+          <!-- Données du produit -->
+          <div *ngIf="reading.parsed_data.data" class="mb-2">
+            <strong>Données du produit:</strong>
+            <div *ngIf="reading.parsed_data.data.id" class="ms-3">
+              <strong>ID:</strong> {{ reading.parsed_data.data.id }}
+            </div>
+            <div *ngIf="reading.parsed_data.data.name" class="ms-3">
+              <strong>Nom:</strong> {{ reading.parsed_data.data.name }}
+            </div>
+            <div *ngIf="reading.parsed_data.data.quantity" class="ms-3">
+              <strong>Quantité:</strong> {{ reading.parsed_data.data.quantity }}
+            </div>
+            <div *ngIf="reading.parsed_data.data.price" class="ms-3">
+              <strong>Prix:</strong> {{ reading.parsed_data.data.price }}
+            </div>
+          </div>
+          
+          <!-- Message d'erreur si présent -->
+          <div *ngIf="reading.parsed_data.error" class="alert alert-warning">
+            <strong>Erreur:</strong> {{ reading.parsed_data.error }}
+          </div>
+        </div>
+        
+        <!-- Affichage de la valeur brute -->
+        <div>
+          <h5>Valeur brute:</h5>
+          <pre class="json-display">{{ isObject(reading.raw_value) ? formatJson(reading.raw_value) : reading.raw_value }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

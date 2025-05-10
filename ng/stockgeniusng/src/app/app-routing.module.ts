@@ -6,6 +6,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PredictionsComponent } from './predictions/predictions.component';
+import { RfidReadingsComponent } from './rfid-readings/rfid-readings.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'signin', pathMatch:'full' },
@@ -28,6 +29,9 @@ const routes: Routes = [
   },{
     path: 'predictions' ,
     component: PredictionsComponent
+  },{
+    path: 'rfid-readings' ,
+    component: RfidReadingsComponent
   },
 ];
 

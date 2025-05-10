@@ -11,6 +11,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+
+  getScannedProducts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/rfid/readings`);
+  }
   // Produits
   getAllProducts(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/products`);

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
+import { ProductService } from '../services/product.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -17,14 +20,27 @@ export class DashboardComponent implements OnInit {
     
     currentIndex: number = 0;
     timer: any;
-  constructor() { }
-
+  constructor(private produitService:ProductService) { }
+getscanned()
+{
+  this.produitService.getScannedProducts().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log('erreur lors de la récupération des produits scannés:', error);
+        
+      }
+    );
+  
+}
   ngOnInit(): void {
     if(localStorage.getItem("logged")=="true"){
       $('body').css('background-image', 'url(../../assets/img/bg_login.jpg)');
       $('body').css('background-size', 'cover');
       $('#content-wrapper').css('background-color', 'rgb(236 239 243 / 0%) !important;');
     }
+    this.getscanned();
     this.changeImage();
     document.addEventListener('DOMContentLoaded', function() {
       const counter:any = document.getElementById('counter');

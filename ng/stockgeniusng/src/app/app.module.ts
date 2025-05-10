@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
-import { PredictionsComponent } from './predictions/predictions.component';  // Importez ce module
+import { PredictionsComponent } from './predictions/predictions.component';
+import { RfidReadingsComponent } from './rfid-readings/rfid-readings.component';  // Importez ce module
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PredictionsComponent } from './predictions/predictions.component';  // 
     CustomersComponent,
     ProductsComponent,
     OrdersComponent,
-    PredictionsComponent
+    PredictionsComponent,
+    RfidReadingsComponent
   ],
   imports: [
     BrowserModule,
