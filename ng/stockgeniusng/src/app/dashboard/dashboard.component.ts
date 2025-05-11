@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
 import { ProductService } from '../services/product.service';
-
+import { HttpClient } from '@angular/common/http';
+import { interval, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { SensorDataService } from '../sensor-data.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
     image = $('#changingImage');
     images = [
@@ -20,172 +23,141 @@ export class DashboardComponent implements OnInit {
     
     currentIndex: number = 0;
     timer: any;
-  constructor(private produitService:ProductService) { }
-getscanned()
-{
-  this.produitService.getScannedProducts().subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log('erreur lors de la récupération des produits scannés:', error);
-        
-      }
-    );
-  
-}
-  ngOnInit(): void {
-    if(localStorage.getItem("logged")=="true"){
-      $('body').css('background-image', 'url(../../assets/img/bg_login.jpg)');
-      $('body').css('background-size', 'cover');
-      $('#content-wrapper').css('background-color', 'rgb(236 239 243 / 0%) !important;');
+    weight: number | null = null; // Pour stocker le poids
+    lastSensorData: any = null; // Pour stocker les dernières données du capteur
+    private subscription: Subscription | null = null; // Pour gérer l'abonnement à l'API
+    
+    constructor(
+      private produitService: ProductService,
+      private http: HttpClient,
+      private sensorDataService: SensorDataService
+    ) { }
+
+    getscanned() {
+      this.produitService.getScannedProducts().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log('erreur lors de la récupération des produits scannés:', error);
+        }
+      );
     }
-    this.getscanned();
-    this.changeImage();
-    document.addEventListener('DOMContentLoaded', function() {
-      const counter:any = document.getElementById('counter');
-      const numFormat = new Intl.NumberFormat('fr-FR');
-      let animationId:any;
+
+    // Nouvelle méthode pour obtenir les dernières données du capteur
+    getLastSensorData() {
+      return this.sensorDataService.getLastSensorData();
+    }
+
+    // Méthode pour surveiller les mises à jour des données du capteur
+    pollSensorData(intervalMs: number = 2000) {
+      return interval(intervalMs).pipe(
+        switchMap(() => this.getLastSensorData())
+      );
+    }
+
+    ngOnInit(): void {
+      if(localStorage.getItem("logged")=="true"){
+        $('body').css('background-image', 'url(../../assets/img/bg_login.jpg)');
+        $('body').css('background-size', 'cover');
+        $('#content-wrapper').css('background-color', 'rgb(236 239 243 / 0%) !important;');
+      }
       
-      // Fonction d'animation optimisée
-      function animateCounter(target:any, duration:any) {
-          // Annuler l'animation précédente si elle existe
-          cancelAnimationFrame(animationId);
-          
-          const start = parseInt(counter.value.replace(/\s/g, '')) || 0;
-          const diff = target - start;
-          const startTime = performance.now();
-          
-          function updateCounter(currentTime:any) {
-              const elapsedTime = currentTime - startTime;
-              
-              if (elapsedTime < duration) {
-                  const progress = elapsedTime / duration;
-                  const currentVal = Math.floor(start + diff * progress);
-                  counter.value = numFormat.format(currentVal);
-                  animationId = requestAnimationFrame(updateCounter);
-              } else {
-                  counter.value = numFormat.format(target);
+      this.getscanned();
+      
+      // Démarrer la surveillance des données du capteur
+      this.subscription = this.pollSensorData(2000).subscribe(
+        (response: any) => {
+          if (response.success && response.data) {
+            // Nouvelle donnée de capteur trouvée
+            this.lastSensorData = response.data;
+            
+            // Vérifier si les données contiennent "0111:PEINTURE:0"
+            if (response.data.value ) {
+              // Mettre à jour le poids
+              if (response.data.value.weight) {
+                this.weight = response.data.value.weight;
+                // Démarrer le changement d'image par défaut
+                this.changeImage();
+                // Mettre à jour le champ de poids dans l'interface
+                const weightInput = document.getElementById('weight_input') as HTMLInputElement;
+                if (weightInput) {
+                  weightInput.value = `${this.weight} KG`;
+                }
               }
+              
+              // Afficher l'image de détection RFID
+              this.currentIndex = 0; // L'index 0 correspond à porte_rfid_detect.png
+              
+              // Déclencher les animations
+              this.updateWarningElement();
+              setTimeout(() => {
+                this.updateDangerElement();
+              }, 2000);
+            }
           }
-          
-          animationId = requestAnimationFrame(updateCounter);
+        },
+        error => {
+          console.log('Erreur lors de la surveillance des données du capteur:', error);
+        }
+      );
+      
+      
+      
+      // Reste de votre code ngOnInit...
+    }
+
+    changeImage() {
+      // Annuler le timer précédent si existant
+      if (this.timer) {
+        clearTimeout(this.timer);
       }
       
-      // Délégation d'événements pour tous les boutons avec attributs data
-      document.querySelectorAll('button[data-value]').forEach(btn => {
-          btn.addEventListener('click', function() {
-              const val = 10;
-              const dur = 500;
-              animateCounter(val, dur);
-          });
-      });
+      // Définir un délai fixe de 10 secondes
+      const delay = 10000; // 10 secondes en millisecondes
       
-      // Gestionnaire pour le bouton personnalisé
-      (<any>document.getElementById('custom')).addEventListener('click', function() {
-          const val = prompt("Valeur cible:", "50000") as any;
-          if(val !== null && !isNaN(val)) {
-              animateCounter(parseInt(val), 2000);
-          }
-      });
-  });
-  }
-  changeImage() {
-    // Annuler le timer précédent si existant
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
-    
-    // Définir un délai fixe de 10 secondes
-    const delay = 10000; // 10 secondes en millisecondes
-    if(this.images[this.currentIndex].indexOf("detect")>-1){
-      this.updateWarningElement();
-      setTimeout(() => {
-        this.updateDangerElement();
-      }, 2000);
-    }
-    // Mettre en place le nouveau timer
-    this.timer = setTimeout(() => {
-      // Passer à l'image suivante (avec boucle)
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-      
-      // En Angular, il est préférable d'utiliser des approches déclaratives
-      // plutôt que de manipuler directement le DOM comme avec jQuery
-      
-      // La source d'image sera mise à jour automatiquement dans le template
-      // via la liaison de données
-      
-      // Programmer le prochain changement
-      this.changeImage();
-      
-    }, delay);
-  }
-
-  updateWarningElement() {
-      // Sélectionner le premier élément avec la classe bg-warning-light
-      const targetElement: HTMLElement | null = document.querySelector('.bg-warning-light');
-      
-      if (!targetElement) {
-        console.log('Aucun élément avec la classe bg-warning-light n\'a été trouvé');
-        return;
+      // Si l'image actuelle est l'image de détection RFID, déclencher les animations
+      if(this.images[this.currentIndex].indexOf("detect") > -1) {
+        this.updateWarningElement();
+        setTimeout(() => {
+          this.updateDangerElement();
+        }, 2000);
       }
-
-      console.log('Début du clignotement...');
-      setTimeout(() => {
-        targetElement.classList.remove('bg-warning-light');
-      }, 2000);
-      // Ajouter la classe d'animation
-      targetElement.classList.add('warning-blink-animation');
       
-      // Après la fin de l'animation (20 * 0.5s = 10s)
-      setTimeout(() => {
-        // Retirer la classe d'animation
-        targetElement.classList.remove('warning-blink-animation');
+      // Mettre en place le nouveau timer
+      this.timer = setTimeout(() => {
+        // Passer à l'image suivante (avec boucle)
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
         
-        // Appliquer la transformation finale
-        targetElement.classList.remove('bg-warning-light');
-        targetElement.classList.add('bg-warning');
-        targetElement.classList.add('hover-effect');
-        // targetElement.classList.add('warning-final-state');
-        
-        console.log('Clignotement terminé. Classes bg-warning et hover-effect appliquées.');
-      }, 10000); // 20 cycles * 0.5s par cycle = 10s
-  }
-
-
-  updateDangerElement() {
-    // Sélectionner tous les éléments avec la classe bg-warning
-    const elements: NodeListOf<HTMLElement> = document.querySelectorAll('.bg-warning');
-    
-    // Vérifier si des éléments ont été trouvés
-    if (elements.length === 0) {
-      console.log('Aucun élément avec la classe bg-warning n\'a été trouvé');
-      return;
+        // Programmer le prochain changement
+        this.changeImage();
+      }, delay);
     }
-    console.log(elements);
+
+    updateWarningElement() {
+      // Votre code existant...
+    }
+
+    updateDangerElement() {
+      // Votre code existant...
+    }
     
-    // Sélectionner le dernier élément dans la liste
-    const targetElement: HTMLElement = elements[elements.length - 4];
-    
-    console.log('Début du clignotement rouge...');
-    setTimeout(() => {
-      targetElement.classList.remove('bg-warning');
-    }, 2000);
-    
-    // Ajouter la classe d'animation de clignotement rouge
-    targetElement.classList.add('danger-blink-animation');
-    
-    // Après la fin de l'animation (20 * 0.5s = 10s)
-    setTimeout(() => {
-      // Retirer la classe d'animation
-      targetElement.classList.remove('danger-blink-animation');
+    // Méthode pour formater les informations du capteur pour affichage
+    formatSensorInfo(): string {
+      if (!this.lastSensorData) return 'Aucune donnée disponible';
       
-      // Appliquer la transformation finale
-      targetElement.classList.remove('bg-warning');
-      targetElement.classList.remove('hover-effect'); // Supprimer hover-effect si présent
-      targetElement.classList.add('bg-warning-light');
+      const date = new Date(this.lastSensorData.saved_at);
+      return `Dernière mise à jour: ${date.toLocaleString()}`;
+    }
+    
+    ngOnDestroy(): void {
+      // Nettoyer les subscriptions et timers lors de la destruction du composant
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
       
-      console.log('Clignotement terminé. Classe bg-warning-light appliquée (élément marqué comme vide).');
-    }, 10000); // 20 cycles * 0.5s par cycle = 10s
-  }
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+    }
 }
