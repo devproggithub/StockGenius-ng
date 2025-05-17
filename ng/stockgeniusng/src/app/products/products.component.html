@@ -1,223 +1,136 @@
 <div class="content-wrapper" style="margin-top: 85px !important;">
-    <div class="container-full">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-          <div class="d-block align-items-center">
-              <div class="me-auto">
-                  <h3 class="page-title">Produits/Articles</h3>
-                  <div class="d-inline-block align-items-center" style="float: inline-end;">
-                    <button class="waves-effect waves-light btn btn-social btn-foursquare btn-greenStock mb-5" data-bs-toggle="modal" data-bs-target="#modal-right">
-                        <i class="fa fa-add"></i> Nouveau produit
-                      </button>
-                      <!-- <nav>
-                          <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Tables</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
-                          </ol>
-                      </nav> -->
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="row">
-            <div class="col-12">
-                <div class="box">
-                    <!-- <div class="box-header with-border">
-                      <h3 class="box-title">Hover Export Data Table</h3>
-                      <h6 class="box-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-                    </div> -->
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="table-responsive">
-                            <table id="products-table" class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
-                                <thead>
-                                    <tr>
-                                        <th>Désignation</th>
-                                        <th>Catégorie</th>
-                                        <th>Stock actuel (kg/paquet)</th>
-                                        <th>Seuil minimal</th>
-                                        <th>Seuil maximal</th>
-                                        <th>Dernière mise à jour</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Visserie 10mm</td>
-                                        <td>Quincaillerie</td>
-                                        <td>250</td>
-                                        <td>100</td>
-                                        <td>500</td>
-                                        <td>2025/04/18</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ciment Rapide 25kg</td>
-                                        <td>Matériaux de Construction</td>
-                                        <td>120</td>
-                                        <td>50</td>
-                                        <td>200</td>
-                                        <td>2025/04/20</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Peinture Extérieure 10L</td>
-                                        <td>Peinture & Revêtements</td>
-                                        <td>85</td>
-                                        <td>40</td>
-                                        <td>150</td>
-                                        <td>2025/04/15</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tournevis Set Pro</td>
-                                        <td>Outillage & Équipement</td>
-                                        <td>45</td>
-                                        <td>20</td>
-                                        <td>80</td>
-                                        <td>2025/04/22</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Câble Électrique 2.5mm²</td>
-                                        <td>Électricité & Éclairage</td>
-                                        <td>320</td>
-                                        <td>150</td>
-                                        <td>600</td>
-                                        <td>2025/04/10</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tuyau PVC 100mm</td>
-                                        <td>Plomberie & Sanitaire</td>
-                                        <td>75</td>
-                                        <td>30</td>
-                                        <td>120</td>
-                                        <td>2025/04/17</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Serrure Sécurité 3 points</td>
-                                        <td>Sécurité & Domotique</td>
-                                        <td>28</td>
-                                        <td>15</td>
-                                        <td>50</td>
-                                        <td>2025/04/19</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gants de Protection Pro</td>
-                                        <td>Équipements de Protection</td>
-                                        <td>150</td>
-                                        <td>50</td>
-                                        <td>300</td>
-                                        <td>2025/04/21</td>
-                                        <td>
-                                            <div class="clearfix">
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails"><i class="fa fa-eye"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier"><i class="fa fa-edit"></i></button>
-                                                <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer"><i class="fa fa-trash"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>              
-                    </div>
-                    <!-- /.box-body -->
-                  </div>
+  <div class="container-full">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="d-block align-items-center">
+            <div class="me-auto">
+                <h3 class="page-title">Produits/Articles</h3>
+                <div class="d-inline-block align-items-center" style="float: inline-end;">
+                  <button class="waves-effect waves-light btn btn-social btn-foursquare btn-greenStock mb-5" (click)="resetForm(); openModal('modal-right')">
+                      <i class="fa fa-add"></i> Nouveau produit
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Messages d'alerte -->
+    <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="btn-close" (click)="successMessage = ''"></button>
+      {{ successMessage }}
+    </div>
+    
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="btn-close" (click)="errorMessage = ''"></button>
+      {{ errorMessage }}
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+          <div class="col-12">
+              <div class="box">
+                  <div class="box-body">
+                      <!-- Indicateur de chargement -->
+                      <div *ngIf="isLoading" class="text-center p-5">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="sr-only">Chargement...</span>
+                        </div>
+                      </div>
+                      
+                      <!-- Tableau de données -->
+                      <div class="table-responsive" *ngIf="!isLoading">
+                          <table id="products-table" datatable class="table table-bordered table-hover display nowrap margin-top-10 w-p100">
+                              <thead>
+                                  <tr>
+                                      <th>Désignation</th>
+                                      <th>Catégorie</th>
+                                      <th>Stock actuel (kg/paquet)</th>
+                                      <th>Seuil minimal</th>
+                                      <th>Seuil maximal</th>
+                                      <th>Dernière mise à jour</th>
+                                      <th>Actions</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let product of products">
+                                      <td>{{ product.designation }}</td>
+                                      <td>{{ product.category }}</td>
+                                      <td [ngClass]="{
+                                        'text-danger': product.quantity < product.min_threshold,
+                                        'text-warning': product.quantity >= product.min_threshold && product.quantity < product.min_threshold * 1.2,
+                                        'text-success': product.quantity >= product.min_threshold * 1.2
+                                      }">
+                                        {{ product.quantity || 0 }}
+                                      </td>
+                                      <td>{{ product.min_threshold }}</td>
+                                      <td>{{ product.max_threshold }}</td>
+                                      <td>{{ formatDate(product.last_updated) }}</td>
+                                      <td>
+                                          <div class="clearfix">
+                                              <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-bitbucket" title="Voir détails" (click)="viewProduct(product)">
+                                                <i class="fa fa-eye"></i>
+                                              </button>
+                                              <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-dropbox" title="Modifier" (click)="editProduct(product)">
+                                                <i class="fa fa-edit"></i>
+                                              </button>
+                                              <button class="waves-effect waves-circle btn btn-social-icon btn-circle btn-google" title="Supprimer" (click)="confirmDelete(product)">
+                                                <i class="fa fa-trash"></i>
+                                              </button>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>              
+                  </div>
+                </div>
+          </div>
+      </div>
     </section>
-    <!-- /.content -->
-  
   </div>
 
+  <!-- Modal Ajout/Modification -->
   <div class="modal modal-right fade" id="modal-right" tabindex="-1">
     <div class="modal-dialog" style="height: fit-content;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Nouveau produit</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">{{ isEditMode ? 'Modifier le produit' : 'Nouveau produit' }}</h5>
+          <button type="button" class="btn-close" (click)="closeModal('modal-right')" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="row">
                 <div class="col">
-                    <form novalidate>
+                    <form [formGroup]="productForm" (ngSubmit)="addOrUpdateProduct()">
                       <div class="row">
                         <div class="col-12">						
                             <div class="form-group">
                                 <h5>Désignation <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="text" name="designation" class="form-control" required data-validation-required-message="Ce champ est obligatoire"> 
+                                    <input type="text" formControlName="designation" class="form-control" 
+                                          [ngClass]="{'is-invalid': submitted && f['designation'].errors}"> 
+                                    <div *ngIf="submitted && f['designation'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['designation'].errors['required']">Ce champ est obligatoire</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Description</h5>
                                 <div class="controls">
-                                    <textarea name="description" class="form-control" placeholder="Description du produit"></textarea> 
+                                    <textarea formControlName="description" class="form-control" placeholder="Description du produit"></textarea> 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Catégorie <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="category" id="category" required class="form-select">
+                                    <select formControlName="category_id" id="category" class="form-select"
+                                          [ngClass]="{'is-invalid': submitted && f['category_id'].errors}">
                                         <option value="">Sélectionnez la catégorie</option>
-                                        <option value="1">Matériaux de Construction</option>
-                                        <option value="2">Outillage & Équipement</option>
-                                        <option value="3">Quincaillerie</option>
-                                        <option value="4">Électricité & Éclairage</option>
-                                        <option value="5">Plomberie & Sanitaire</option>
-                                        <option value="6">Peinture & Revêtements</option>
-                                        <option value="7">Jardin & Extérieur</option>
-                                        <option value="8">Sécurité & Domotique</option>
+                                        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
                                     </select>
+                                    <div *ngIf="submitted && f['category_id'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['category_id'].errors['required']">Ce champ est obligatoire</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -225,37 +138,53 @@
                             <div class="form-group">
                                 <h5>Seuil minimal <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="number" name="minThreshold" class="form-control" required data-validation-required-message="Ce champ est obligatoire"> 
+                                    <input type="number" formControlName="min_threshold" class="form-control"
+                                          [ngClass]="{'is-invalid': submitted && f['min_threshold'].errors}"> 
+                                    <div *ngIf="submitted && f['min_threshold'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['min_threshold'].errors['required']">Ce champ est obligatoire</div>
+                                      <div *ngIf="f['min_threshold'].errors['min']">La valeur doit être supérieure à 0</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Seuil maximal <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="number" name="maxThreshold" class="form-control" required data-validation-required-message="Ce champ est obligatoire">
+                                    <input type="number" formControlName="max_threshold" class="form-control"
+                                          [ngClass]="{'is-invalid': submitted && f['max_threshold'].errors}">
+                                    <div *ngIf="submitted && f['max_threshold'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['max_threshold'].errors['required']">Ce champ est obligatoire</div>
+                                      <div *ngIf="f['max_threshold'].errors['min']">La valeur doit être supérieure à 0</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Tag RFID</h5>
                                 <div class="controls">
-                                    <input type="text" name="rfidTag" class="form-control"> 
+                                    <input type="text" formControlName="rfid_tag" class="form-control"> 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Zone de stockage <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="zone" id="zone" required class="form-select">
+                                    <select formControlName="zone_id" id="zone" class="form-select"
+                                          [ngClass]="{'is-invalid': submitted && f['zone_id'].errors}">
                                         <option value="">Sélectionnez la zone</option>
-                                        <option value="1">Zone A - Principal</option>
-                                        <option value="2">Zone B - Secondaire</option>
-                                        <option value="3">Zone C - Externe</option>
-                                        <option value="4">Zone D - Sécurisée</option>
+                                        <option *ngFor="let zone of zones" [value]="zone.id">{{ zone.name }}</option>
                                     </select>
+                                    <div *ngIf="submitted && f['zone_id'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['zone_id'].errors['required']">Ce champ est obligatoire</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <h5>Quantité initiale <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <input type="number" name="initialQuantity" class="form-control" required data-validation-required-message="Ce champ est obligatoire"> 
+                                    <input type="number" formControlName="initial_quantity" class="form-control"
+                                          [ngClass]="{'is-invalid': submitted && f['initial_quantity'].errors}"> 
+                                    <div *ngIf="submitted && f['initial_quantity'].errors" class="invalid-feedback">
+                                      <div *ngIf="f['initial_quantity'].errors['required']">Ce champ est obligatoire</div>
+                                      <div *ngIf="f['initial_quantity'].errors['min']">La valeur doit être supérieure à 0</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -285,21 +214,159 @@
                       <div class="text-xs-right">
                           <div class="row d-flex" >
                               <div >
-                                  <button type="submit" class="btn btn-info" style="width: inherit;">Ajouter</button>
+                                  <button type="submit" class="btn btn-info" style="width: inherit;">
+                                    {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+                                  </button>
                               </div>
                           </div>
                           <div class="row d-flex">
                               <div class="col-md-12">
-                                  <button type="button" class="btn btn-default" data-bs-dismiss="modal" style="width: inherit;">Annuler</button>
+                                  <button type="button" class="btn btn-default" (click)="closeModal('modal-right')" style="width: inherit;">Annuler</button>
                               </div>
                           </div>
                       </div>
                     </form>
                 </div>
-                <!-- /.col -->
               </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal de visualisation des détails -->
+  <div class="modal fade" id="modal-view" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-info">
+          <h5 class="modal-title text-white">Détails du produit</h5>
+          <button type="button" class="btn-close" (click)="closeModal('modal-view')" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="selectedProduct">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title">Informations générales</h5>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <th style="width: 40%;">Désignation</th>
+                          <td>{{ selectedProduct.designation }}</td>
+                        </tr>
+                        <tr>
+                          <th>Catégorie</th>
+                          <td>{{ selectedProduct.category }}</td>
+                        </tr>
+                        <tr>
+                          <th>Description</th>
+                          <td>{{ selectedProduct.description || 'Non spécifiée' }}</td>
+                        </tr>
+                        <tr>
+                          <th>Tag RFID</th>
+                          <td>{{ selectedProduct.rfid_tag || 'Non spécifié' }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title">Gestion de stock</h5>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <tbody>
+                        <tr>
+                          <th style="width: 40%;">Stock actuel</th>
+                          <td 
+                            [ngClass]="{
+                              'text-danger': selectedProduct.quantity < selectedProduct.min_threshold,
+                              'text-warning': selectedProduct.quantity >= selectedProduct.min_threshold && selectedProduct.quantity < selectedProduct.min_threshold * 1.2,
+                              'text-success': selectedProduct.quantity >= selectedProduct.min_threshold * 1.2
+                            }">
+                            {{ selectedProduct.quantity || 0 }} kg/paquet
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Seuil minimal</th>
+                          <td>{{ selectedProduct.min_threshold }} kg/paquet</td>
+                        </tr>
+                        <tr>
+                          <th>Seuil maximal</th>
+                          <td>{{ selectedProduct.max_threshold }} kg/paquet</td>
+                        </tr>
+                        <tr>
+                          <th>Dernière mise à jour</th>
+                          <td>{{ formatDate(selectedProduct.last_updated) }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graphique d'évolution du stock (à implémenter plus tard) -->
+          <div class="row mt-3">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title">Évolution du stock</h5>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted">Graphique d'évolution du stock sur les 30 derniers jours</p>
+                  <!-- Emplacement pour un graphique -->
+                  <div style="height: 200px; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center;">
+                    <span class="text-muted">Données de graphique non disponibles</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-info" (click)="editProduct(selectedProduct)">Modifier</button>
+         <button type="button" class="btn btn-default" (click)="closeModal('modal-view')">Fermer</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <!-- Modal de confirmation de suppression -->
+ <div class="modal fade" id="modal-delete" tabindex="-1">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header bg-danger">
+         <h5 class="modal-title text-white">Confirmation de suppression</h5>
+         <button type="button" class="btn-close" (click)="closeModal('modal-delete')" aria-label="Close"></button>
+       </div>
+       <div class="modal-body" *ngIf="productToDelete">
+         <div class="alert alert-warning">
+           <i class="fa fa-exclamation-triangle me-2"></i>
+           Cette action est irréversible!
+         </div>
+         <p>Êtes-vous sûr de vouloir supprimer le produit suivant ?</p>
+         <div class="card">
+           <div class="card-body">
+             <p><strong>Désignation:</strong> {{ productToDelete.designation }}</p>
+             <p><strong>Catégorie:</strong> {{ productToDelete.category }}</p>
+             <p><strong>Stock actuel:</strong> {{ productToDelete.quantity || 0 }} kg/paquet</p>
+           </div>
+         </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" (click)="closeModal('modal-delete')">Annuler</button>
+         <button type="button" class="btn btn-danger" (click)="deleteProduct()">Supprimer</button>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>
